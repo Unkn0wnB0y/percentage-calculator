@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>percentage calculator</title>
+<style>
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+h1{
+    text-align: center;
+    align-items: center;
+    color: red;
+    font-size: 50px;
+}
+.container{
+    box-sizing: border-box;
+    border: 1px solid rgb(172, 171, 171);
+    box-shadow: 2px 2px 2px 4px rgb(175, 170, 170);
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    border: none;
+}
+.Marks{
+    color: rgb(228, 81, 81);
+    font-size: x-large;
+    font-weight: bold;
+}
+.number{
+    padding: 5px;
+    background-color:rgba(233, 231, 231, 0.726) ;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+   
+    font-size: x-large;
+    border: none;
+    border-radius: 10px;
+}
+.CalculateNow{
+    padding: 10px 80px 10px 80px;
+    background-color: rgb(32, 114, 190);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: large;
+    cursor: pointer;
+    
+}
+#result{
+    text-align: center;
+    align-items: center;
+  
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .CalculateNow{
+        width: 100%;
+    }
+    .number{
+        width: 100%;
+    }
+    #result{
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+     .CalculateNow{
+    width: 100%;
+}
+.number{
+    width: 100%;
+}
+#result{
+    width: 100%;
+}
+.container{
+    width: 100%;
+}}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .CalculateNow{
+        width: 60%;
+    margin-left: 160px;
+    margin-top: 60px;
+    }
+    .number{
+        width: 70%;
+        margin-top: 20px;
+        margin-left: 80px;
+    }
+    #result{
+        background-color: rgb(108, 33, 207);
+        padding: 30px;
+        width: 60%;
+        margin-left: 130px;
+        border-radius: 5px;
+        font-size: x-large;
+        color: white;
+    }
+    .container{
+        width: 90%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .CalculateNow{
+        width: 70%;
+    margin-left: 160px;
+    margin-top: 60px;
+    }
+    .number{
+        width: 80%;
+        margin-top: 20px;
+        margin-left: 80px;
+    }
+    #result{
+        background-color: rgb(108, 33, 207);
+        padding: 30px;
+        width: 70%;
+        margin-left: 130px;
+        border-radius: 5px;
+        font-size: x-large;
+        color: white;
+    }
+    .container{
+        width: 95%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .CalculateNow{
+        width: 80%;
+    margin-left: 160px;
+    margin-top: 60px;
+    }
+    .number{
+        width: 90%;
+        margin-top: 20px;
+        margin-left: 80px;
+    }
+    #result{
+        background-color: rgb(108, 33, 207);
+        padding: 30px;
+        width: 80%;
+        margin-left: 130px;
+        border-radius: 5px;
+        font-size: x-large;
+        color: white;
+    }
+    .container{
+        width: 95%;
+    }
+}
+</style>
+</head>
+<body>
+    <h1>Marks Percentage Calculator</h1>
+    <div id="container" class="container">
+    <div id="Marks">
+     <p class="Marks"> 
+        Total Marks: 
+        <input type="number" id="TotalMarks" class="number" required placeholder="123456">
+    </p> 
+    <p class="Marks">
+        Obtained Marks:
+     <input type="number" id="ObtainedMarks" class="number" required placeholder="123456">
+    </p>
+    </div>
+    <p>
+        <button class="CalculateNow" id="CalculateNow">Calculate Now</button>
+    </p> 
+    <br>
+    <p id="result"></p>
+</div><body> 
+<h1>Marks Percentage Calculator</h1>
+    <div id="container" class="container">
+    <div id="Marks">
+     <p class="Marks"> 
+        Total Marks: 
+        <input type="number" id="TotalMarks" class="number" required placeholder="123456">
+    </p> 
+    <p class="Marks">
+        Obtained Marks:
+     <input type="number" id="ObtainedMarks" class="number" required placeholder="123456">
+    </p>
+    </div>
+    <p>
+        <button class="CalculateNow" id="CalculateNow">Calculate Now</button>
+    </p> 
+    <br>
+    <p id="result"></p>
+    </div>
+<script>
+document.getElementById('CalculateNow')
+.addEventListener('click',function(){
+    var TotalMarks = parseFloat(document.getElementById('TotalMarks').value);
+     var ObtainedMarks = parseFloat(document.getElementById('ObtainedMarks').value);
+     if (isNaN(TotalMarks) ||
+    isNaN(ObtainedMarks)) {
+        document.getElementById('result').textContent = 'Please enter valid marks.';
+    } else {
+        var Percentage = (ObtainedMarks / TotalMarks) * 100;
+        document.getElementById('result').textContent = ' Percentage :' + Percentage.toFixed(2) +'%';
+    }
+});
+</script>
+</body>
+</html>
